@@ -10,3 +10,5 @@
 <img width="503" height="528" alt="8f52727fd35f03656f1b2a44d7f4d4cb" src="https://github.com/user-attachments/assets/5107ad76-4935-4225-be37-3ecb8460d447" />
 <img width="503" height="499" alt="588c0223aa94120460e0ddafe11c5863" src="https://github.com/user-attachments/assets/8ea6b82d-104b-4f9a-815d-46c9d828680f" />
 
+# Лабораторная работа №2  
+Многостраничный сайт, посвященный сладостям, кофе и Пушин на html и css  

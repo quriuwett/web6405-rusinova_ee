@@ -1,0 +1,145 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Comic Sans MS", "Chalkboard SE", "Trebuchet MS", sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #6b4f6b;
+    background-color: #fff5f9;
+}
+
+h1, h2, h3 {
+    color: #e0679b;
+}
+
+a {
+    color: #b45fd6;
+}
+
+
+#header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 40px;
+    background-color: #ffc8dd;
+    border-bottom: 6px dotted #cdb4ff;
+}
+
+#header h1 {
+    margin: 0 0 8px 0;
+    color: #fff;
+    text-shadow: 2px 2px 0 #ff8fab;
+}
+
+.mascot {
+    width: 110px;
+    height: auto;
+}
+
+.menu a {
+    display: inline-block;
+    color: #7a3a58;
+    background-color: #fff;
+    text-decoration: none;
+    padding: 6px 16px;
+    margin: 0 6px 6px 0;
+    border-radius: 20px;
+    border: 2px solid #ffafcc;
+}
+
+
+.menu a:hover {
+    background-color: #b5ead7;
+    border-color: #8fd9bd;
+}
+
+.menu a.active {
+    background-color: #cdb4ff;
+    border-color: #b497f0;
+    color: #fff;
+}
+
+
+.content {
+    max-width: 960px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background-color: #fff;
+    border: 3px dotted #ffafcc;
+    border-radius: 25px;
+    padding: 20px 28px;
+    margin-bottom: 25px;
+}
+
+
+.card h2::before {
+    content: "♡ ";
+    color: #ff8fab;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+.highlight {
+    background-color: #e2cffd;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.note {
+    border-left: 8px solid #bde0fe;
+    background-color: #eaf6ff;
+    border-radius: 12px;
+    padding: 12px 18px;
+    margin: 20px 0;
+}
+
+
+a[href^="http"] {
+    color: #4ea8de;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+th, td {
+    border: 2px solid #ffd6e7;
+    padding: 10px 14px;
+}
+
+th {
+    background-color: #ffc8dd;
+    color: #7a3a58;
+}
+
+tr:nth-child(even) {
+    background-color: #fff0f6;
+}
+
+.left   { text-align: left; }
+.center { text-align: center; }
+.right  { text-align: right; }
+
+
+#footer {
+    background-color: #cdb4ff;
+    color: #fff;
+    text-align: center;
+    padding: 18px;
+    margin-top: 40px;
+}
