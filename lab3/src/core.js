@@ -2,7 +2,16 @@
  * Напишите функцию, которая проверяет, является ли число целым используя побитовые операторы
  * @param {*} n
  */
+function checkNumber(n) {
+    if (typeof n !== 'number' || Number.isNaN(n)) {
+        throw new TypeError('Аргумент должен быть числом');
+    }
+}
+
 function isInteger(n) {
+    if (typeof n !== 'number') {
+        return false;
+    }
     return (n | 0) === n;
 }
 
@@ -24,6 +33,7 @@ function even() {
  * @param {*} n
  */
 function sumTo(n) {
+    checkNumber(n);
     let sum = 0;
     for (let i = 1; i <= n; i++) {
         sum += i;
@@ -36,6 +46,7 @@ function sumTo(n) {
  * @param {*} n
  */
 function recSumTo(n) {
+    checkNumber(n);
     if (n <= 0) {
         return 0;
     }
@@ -47,6 +58,7 @@ function recSumTo(n) {
  * @param {*} n
  */
 function factorial(n) {
+    checkNumber(n);
     if (n <= 1) {
         return 1;
     }
@@ -58,14 +70,22 @@ function factorial(n) {
  * @param {*} n
  */
 function isBinary(n) {
-    return n > 0 && (n & (n - 1)) === 0;
+    checkNumber(n);
+    if (n <= 0) return false;
+    while (n % 2 === 0) n = n / 2;
+    return n === 1;
 }
+
 
 /**
  * Напишите функцию, которая находит N-е число Фибоначчи
  * @param {*} n
  */
 function fibonacci(n) {
+    checkNumber(n);
+    if (n < 0) {
+        throw new RangeError('Номер числа Фибоначчи не может быть отрицательным');
+    }
     let a = 0;
     let b = 1;
     for (let i = 0; i < n; i++) {
@@ -88,9 +108,12 @@ function fibonacci(n) {
  * console.log(sumFn(3)) - 18
  */
 function getOperationFn(initialValue, operatorFn) {
+    if (operatorFn !== undefined && typeof operatorFn !== 'function') {
+        throw new TypeError('operatorFn должен быть функцией');
+    }
     let value = initialValue;
     return function (newValue) {
-        if (operatorFn) {
+        if (operatorFn !== undefined) {
             value = operatorFn(value, newValue);
         }
         return value;
@@ -114,6 +137,8 @@ function getOperationFn(initialValue, operatorFn) {
  * console.log(generator()); // 9
  */
 function sequence(start = 0, step = 1) {
+    checkNumber(start);
+    checkNumber(step);
     let value = start;
     return function () {
         let result = value;
@@ -142,6 +167,10 @@ function deepEqual(firstObject, secondObject) {
     }
     if (firstObject !== firstObject && secondObject !== secondObject) {
     return true;
+    }
+    if (typeof firstObject !== 'object' || firstObject === null ||
+        typeof secondObject !== 'object' || secondObject === null) {
+        return false;
     }
     let keys1 = Object.keys(firstObject);
     let keys2 = Object.keys(secondObject);
