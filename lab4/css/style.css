@@ -1,0 +1,261 @@
+:root {
+    --text: #6b4f6b;
+    --background: #fff5f9;
+    --heading: #e0679b;
+    --link: #b45fd6;
+    --pink: #ffc8dd;
+    --purple: #cdb4ff;
+    --white: #fff;
+    --accent: #ff8fab;
+    --menu-text: #7a3a58;
+    --border: #ffafcc;
+    --hover: #b5ead7;
+    --hover-border: #8fd9bd;
+    --active-border: #b497f0;
+    --highlight: #e2cffd;
+    --note-border: #bde0fe;
+    --note-background: #eaf6ff;
+    --external-link: #4ea8de;
+    --table-border: #ffd6e7;
+    --table-row: #fff0f6;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Comic Sans MS", "Chalkboard SE", "Trebuchet MS", sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--background);
+}
+
+h1, h2, h3 {
+    color: var(--heading);
+}
+
+a {
+    color: var(--link);
+}
+
+
+#header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 40px;
+    background-color: var(--pink);
+    border-bottom: 6px dotted var(--purple);
+}
+
+#header h1 {
+    margin: 0 0 8px 0;
+    color: var(--white);
+    text-shadow: 2px 2px 0 var(--accent);
+}
+
+.mascot {
+    width: 110px;
+    height: auto;
+}
+
+.menu a {
+    display: inline-block;
+    color: var(--menu-text);
+    background-color: var(--white);
+    text-decoration: none;
+    padding: 6px 16px;
+    margin: 0 6px 6px 0;
+    border-radius: 20px;
+    border: 2px solid var(--border);
+}
+
+
+.menu a:hover{
+    background-color: var(--hover);
+    border-color: var(--hover-border);
+}
+
+.menu a.active {
+    background-color: var(--purple);
+    border-color: var(--active-border);
+    color: var(--white);
+}
+
+
+.content {
+    max-width: 960px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background-color: var(--white);
+    border: 3px dotted var(--border);
+    border-radius: 25px;
+    padding: 20px 28px;
+    margin-bottom: 25px;
+}
+
+
+.card h2::before {
+    content: "♡ ";
+    color: var(--accent);
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+.highlight {
+    background-color: var(--highlight);
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.note {
+    border-left: 8px solid var(--note-border);
+    background-color: var(--note-background);
+    border-radius: 12px;
+    padding: 12px 18px;
+    margin: 20px 0;
+}
+
+
+a[href^="http"] {
+    color: var(--external-link);
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+th, td {
+    border: 2px solid var(--table-border);
+    padding: 10px 14px;
+}
+
+th {
+    background-color: var(--pink);
+    color: var(--menu-text);
+}
+
+tr:nth-child(even) {
+    background-color: var(--table-row);
+}
+
+.left   { text-align: left; }
+.center { text-align: center; }
+.right  { text-align: right; }
+
+
+#footer {
+    background-color: var(--purple);
+    color: var(--white);
+    text-align: center;
+    padding: 18px;
+    margin-top: 40px;
+}
+
+.flex-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+}
+
+.flex-layout .card {
+    flex: 1;
+    min-width: 0;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 25px;
+    align-items: start;
+    max-width: 1200px;
+}
+
+.grid-layout .card {
+    min-width: 0;
+}
+
+.card {
+    overflow-x: auto;
+}
+
+.mascot {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(-4deg);
+    }
+    50% {
+        transform: translateY(-8px) rotate(4deg);
+    }
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 450px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"] {
+    padding: 10px;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    background-color: var(--white);
+    color: var(--text);
+    font: inherit;
+}
+
+.agreement input {
+    accent-color: var(--link);
+}
+
+.contact-form button {
+    padding: 10px 20px;
+    border: 2px solid var(--active-border);
+    border-radius: 20px;
+    background-color: var(--purple);
+    color: var(--menu-text);
+    font: inherit;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: var(--hover);
+    border-color: var(--hover-border);
+}
+
+@media (max-width: 800px) {
+    .flex-layout {
+        flex-direction: column;
+    }
+
+    .flex-layout .card {
+        width: 100%;
+    }
+
+    .grid-layout {
+        grid-template-columns: 1fr;
+    }
+
+    #header {
+        padding: 15px;
+        flex-wrap: wrap;
+    }
+}
